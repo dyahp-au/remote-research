@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "research": {
+      "type": "stdio",
+      "command": "C:\\Users\\dyah_\\.local\\bin\\uv.exe",
+      "args": [
+        "--directory",
+        "C:\\Users\\dyah_\\Projects\\applications\\mcp_project",
+        "run",
+        "research_server.py"
+      ]
+    }
+  }
+}

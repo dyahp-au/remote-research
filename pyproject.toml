@@ -1,0 +1,29 @@
+[project]
+name = "mcp-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "dyahp-au", email = "dyah.purnomo@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "anthropic>=2.8.0",
+    "arxiv>=4.1.0",
+    "mcp>=1.2,<2",
+    "nest-asyncio>=1.6.0",
+    "python-dotenv>=1.2.4",
+    "truststore>=0.10.5",
+]
+
+[project.scripts]
+mcp-project = "mcp_project:main"
+
+[build-system]
+requires = ["uv_build>=0.13.8,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+]
