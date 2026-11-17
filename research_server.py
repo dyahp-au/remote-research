@@ -7,11 +7,13 @@ from mcp.server.fastmcp import FastMCP
 PAPER_DIR = "papers"
 
 # Initialize FastMCP server.
-# Locally it binds to 127.0.0.1:8001; on Render, set HOST=0.0.0.0 and Render supplies PORT.
+# Locally it binds to 127.0.0.1:8001. When a host such as Render supplies PORT,
+# bind to all interfaces so the platform can route traffic to it.
+_port = os.environ.get("PORT")
 mcp = FastMCP(
     "research",
-    host=os.environ.get("HOST", "127.0.0.1"),
-    port=int(os.environ.get("PORT", "8001")),
+    host=os.environ.get("HOST", "0.0.0.0" if _port else "127.0.0.1"),
+    port=int(_port or "8001"),
 )
 
 @mcp.tool()
