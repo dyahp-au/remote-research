@@ -1,6 +1,14 @@
 import arxiv
 import json
 import os
+
+# Use the operating system's certificate store so HTTPS works behind antivirus
+# TLS scanning (e.g. Avast). Optional: Render doesn't need or install it.
+try:
+    import truststore
+    truststore.inject_into_ssl()
+except ImportError:
+    pass
 from typing import List
 from mcp.server.fastmcp import FastMCP
 
