@@ -199,5 +199,10 @@ Follow these instructions:
 Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
 if __name__ == "__main__":
-    # Initialize and run the server
-    mcp.run(transport="streamable-http")
+    # Hosts like Render supply PORT, so serve over HTTP there.
+    # Locally (Claude desktop, Claude Code, mcp_chatbot.py) run over stdio.
+    # Set MCP_TRANSPORT=streamable-http to test the HTTP mode locally.
+    transport = os.environ.get(
+        "MCP_TRANSPORT", "streamable-http" if _port else "stdio"
+    )
+    mcp.run(transport=transport)
